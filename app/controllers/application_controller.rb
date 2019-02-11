@@ -10,7 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    if Helpers.is_logged_in?(session)
+      erb :'users/plan_index.erb'
+    else
+      erb :index
+    end
   end
 
-end
+  end
