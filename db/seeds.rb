@@ -1,4 +1,4 @@
-User.create(full_name: "john bonham", email: "johnbonham@gmail.com", password: "johnbonhamrocks")
+User.create(username: "jbonham", email: "johnbonham@gmail.com", password: "johnbonhamrocks")
 Plan.create(plan_name:"Media Plan 1", plan_budget:"100000")
 Channel.create(channel_name:"Channel 1", channel_budget:"100000")
 Order.create(order_name:"Order 1", order_budget:"100000")
