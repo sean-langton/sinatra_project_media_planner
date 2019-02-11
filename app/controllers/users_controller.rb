@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  get "/" do
+    erb :index
+  end
+  
   get "/signup" do
     if Helpers.is_logged_in?(session)
       erb :'users/plan_index'
