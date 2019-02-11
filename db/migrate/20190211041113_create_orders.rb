@@ -3,8 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.string  :order_name
       t.float   :order_budget
-      t.date    :order_start_date
-      t.date    :order_end_date
+      t.integer :channel_id
     end
   end
 end

@@ -14,29 +14,25 @@
 ActiveRecord::Schema.define(version: 20190211041130) do
 
   create_table "channels", force: :cascade do |t|
-    t.string "channel_name"
-    t.float  "channel_budget"
-    t.date   "channel_start_date"
-    t.date   "channel_end_date"
+    t.string  "channel_name"
+    t.float   "channel_budget"
+    t.integer "plan_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "order_name"
-    t.float  "order_budget"
-    t.date   "order_start_date"
-    t.date   "order_end_date"
+    t.string  "order_name"
+    t.float   "order_budget"
+    t.integer "channel_id"
   end
 
   create_table "plans", force: :cascade do |t|
     t.string "plan_name"
     t.float  "plan_budget"
-    t.date   "plan_start_date"
-    t.date   "plan_end_date"
   end
 
   create_table "user_plans", force: :cascade do |t|
-    t.string "user_id"
-    t.float  "plan_id"
+    t.integer "user_id"
+    t.integer "plan_id"
   end
 
   create_table "users", force: :cascade do |t|

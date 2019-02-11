@@ -3,8 +3,7 @@ class CreateChannels < ActiveRecord::Migration
     create_table :channels do |t|
       t.string  :channel_name
       t.float   :channel_budget
-      t.date    :channel_start_date
-      t.date    :channel_end_date
+      t.integer :plan_id
     end
   end
 end
