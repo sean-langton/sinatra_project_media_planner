@@ -1,5 +1,11 @@
-body {
-  color: #999;
-  float: right;
-  margin: 20px;
-  }
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #444;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0px 10px;
+}
