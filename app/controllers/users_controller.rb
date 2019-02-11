@@ -1,8 +1,4 @@
-class UsersController < Sinatra::Base
-
-  configure do
-    set :views, 'app/views'
-  end
+class UsersController < ApplicationController
 
   get "/signup" do
     if Helpers.is_logged_in?(session)
@@ -34,14 +30,15 @@ class UsersController < Sinatra::Base
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
+      binding.pry
       redirect to "/#{@user.slug}/index"
     else
       redirect to "/"
     end
   end
 
-  get ":user_slug/index" do
-    if params(:user_slug) == Helpers.current_user.slug
+  get "/:user_slug/index" do
+    if params[:user_slug] == Helpers.current_user(session).slug
       erb :'users/user_index'
     else
       redirect to "/"
@@ -53,4 +50,4 @@ class UsersController < Sinatra::Base
     redirect to "/"
   end
 
-  end
+end
