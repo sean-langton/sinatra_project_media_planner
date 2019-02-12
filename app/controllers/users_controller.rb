@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   get "/" do
     erb :index
   end
-  
+
   get "/signup" do
     if Helpers.is_logged_in?(session)
       erb :'users/plan_index'
@@ -34,7 +34,6 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      binding.pry
       redirect to "/#{@user.slug}/index"
     else
       redirect to "/"
@@ -43,6 +42,7 @@ class UsersController < ApplicationController
 
   get "/:user_slug/index" do
     if params[:user_slug] == Helpers.current_user(session).slug
+      @user = Helpers.current_user(session)
       erb :'users/user_index'
     else
       redirect to "/"
