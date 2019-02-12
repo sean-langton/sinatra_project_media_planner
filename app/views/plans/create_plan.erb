@@ -1,7 +1,33 @@
 <form action="/plans" method="POST">
-  <label>Media Plan Name </label>
-  <input type="text" name="plan_name">
-  <label>Media Plan Budget </label>
-  <input type="number" name="plan_budget">
-  <input type="submit" value="submit">
+  <h4>
+    <label>Media Plan Name </label>
+    <input type="text" name="plan[plan_name]">
+    <label>Media Plan Budget </label>
+    <input type="number" name="plan[plan_budget]">
+  </h4>
+  <h5>
+    <label>Channel Name </label>
+    <input type="text" name="channel[][channel_name]">
+    <label>Channel Budget </label>
+    <input type="number" name="channel[][channel_budget]">
+  </h5>
+  <h5>
+    <label>Channel Name </label>
+    <input type="text" name="channel[][channel_name]">
+    <label>Channel Budget </label>
+    <input type="number" name="channel[][channel_budget]">
+  </h5>
+  <h5>
+    <label>Channel Name </label>
+    <input type="text" name="channel[][channel_name]">
+    <label>Channel Budget </label>
+    <input type="number" name="channel[][channel_budget]">
+  </h5>
+  <h5>
+    <label>Channel Name </label>
+    <input type="text" name="channel[][channel_name]">
+    <label>Channel Budget </label>
+    <input type="number" name="channel[][channel_budget]">
+  </h5>
+    <input type="submit" value="Submit">
 </form>

@@ -11,7 +11,8 @@ class PlansController < ApplicationController
   post "/plans" do
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
-      @plan = Plan.create(params) unless params[:plan_name].blank? || params[:plan_budget]
+#      @plan = Plan.create(params) unless params[:plan_name].blank? || params[:plan_budget]
+      puts params
       redirect to "/#{@user.slug}/index"
     else
       redirect to "/login"
