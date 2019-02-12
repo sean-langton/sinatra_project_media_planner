@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   get "/signup" do
     if Helpers.is_logged_in?(session)
-      erb :'users/plan_index'
+      erb :'users/user_index'
     else
       erb :'users/sign_up'
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   get "/login" do
     if Helpers.is_logged_in?(session)
-      erb :'users/plan_index'
+      erb :'users/user_index'
     else
       erb :'users/login'
     end

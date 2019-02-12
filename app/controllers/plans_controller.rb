@@ -2,7 +2,7 @@ class PlansController < ApplicationController
 
   get "/plans/new" do
     if Helpers.is_logged_in?(session)
-      erb :'plans/create_plan'
+      erb :'plans/new'
     else
       redirect to "/"
     end

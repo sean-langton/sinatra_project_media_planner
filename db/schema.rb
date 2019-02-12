@@ -19,12 +19,6 @@ ActiveRecord::Schema.define(version: 20190211041130) do
     t.integer "plan_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string  "order_name"
-    t.float   "order_budget"
-    t.integer "channel_id"
-  end
-
   create_table "plans", force: :cascade do |t|
     t.string "plan_name"
     t.float  "plan_budget"
