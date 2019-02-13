@@ -1,11 +1,24 @@
-.wrapper {
-  width: 960px;
+header {
+  background-color: #000;
+  color: #fff;
   margin: 0 auto;
+  padding: 1px;
+  text-align: center;
 }
 
-header {
-  background-color: #444;
+.nav-bar {
+  background-color: #555;
   color: #fff;
+  padding: 1px;
   text-align: center;
-  padding: 10px 0px 10px;
+}
+
+.nav-bar a {
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.nav-bar a:hover {
+  text-decoration: underline;
 }

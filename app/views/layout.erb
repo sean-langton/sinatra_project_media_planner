@@ -2,20 +2,33 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <title>Media Planner</title>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
   <body>
     <header>
       <div class="wrapper">
-        <div id="logo"
+        <div id="logo">
           <h2>Media Planner</h2>
         </div>
       </div>
     </header>
+    <% if !Helpers.is_logged_in?(session) %>
+      <div class="nav-bar" id="logged-out">
+        <h3>
+          <a href ="/signup"> Signup </a>
+          <a href ="/login"> Log in </a>
+        </h3>
+      </div>
+    <% else %>
+      <div class="nav-bar" id="logged-out">
+        <h3>
+          <a href="/plans/new"> Create Media Plan </a>
+          <a href="/logout"> Log Out </a>
+        </h3>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
