@@ -1,4 +1,6 @@
+<div class="content">
 <h2> <%= @user.username %>'s Media Plans </h2>
-<% @user.plans.each do |plan| %>
-<p><%= plan.plan_name %> </p>
+<% @user.plans.each_with_index do |plan, index| %>
+<p><%= index + 1 %>. <%= plan.plan_name %>  <a href="/plans/<%=plan.id%>">View Plan</a> <a href="/plans/<%=plan.id%>/edit">Edit Plan</a></p>
 <% end %>
+</div>

@@ -22,3 +22,7 @@ header {
 .nav-bar a:hover {
   text-decoration: underline;
 }
+
+.content {
+  margin: 20px;
+}
