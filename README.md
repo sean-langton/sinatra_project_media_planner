@@ -1,43 +1,35 @@
 # SinatraProjectMediaPlanner
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sinatra_project_media_planner`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+This SINATRA app
 ## Installation
 
-Add this line to your application's Gemfile:
+Execute
 
-```ruby
-gem 'sinatra_project_media_planner'
-```
+  'bundle install'
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install sinatra_project_media_planner
+before using
 
 ## Usage
 
-TODO: Write usage instructions here
+Create an account with a username, email address, and password
+-or-
+Log into existing account using username and password
 
-## Development
+User Index
+  A list of all media plans assigned to that user, with the ability to edit or view.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Create Media Plan
+  Media Plans require a name and a budget. You have the option to add up to 4 orders (More can be added later on during editing, if needed) or add additional users to the media plan.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Edit Media Plans
+  Media plan and corresponding channel names or budgets can be updated or deleted here. Additional channels can also be viewed here.
+
+View Media Plans
+  Media plans can be viewed here
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/sinatra_project_media_planner. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sean-langton/sinatra_project_media_planner.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the SinatraProjectMediaPlanner project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<github username>/sinatra_project_media_planner/blob/master/CODE_OF_CONDUCT.md).
