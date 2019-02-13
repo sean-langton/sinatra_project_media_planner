@@ -19,11 +19,16 @@ class PlansController < ApplicationController
             @plan.channels << new_channel
         end
       end
-        binding.pry      
       redirect to "/#{@user.slug}/index"
     else
       redirect to "/login"
     end
+  end
+
+  get "/plans/:plan_id" do
+    @plan = Plan.find(params[:plan_id])
+    @remaining_budget = @plan.plan_budget - @plan.channels.map {|c| c["channel_budget"]}.reduce(0, :+)
+    erb :"plans/show"
   end
 
 end

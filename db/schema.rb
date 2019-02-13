@@ -15,13 +15,13 @@ ActiveRecord::Schema.define(version: 20190211041130) do
 
   create_table "channels", force: :cascade do |t|
     t.string  "channel_name"
-    t.float   "channel_budget"
+    t.integer "channel_budget"
     t.integer "plan_id"
   end
 
   create_table "plans", force: :cascade do |t|
-    t.string "plan_name"
-    t.float  "plan_budget"
+    t.string  "plan_name"
+    t.integer "plan_budget"
   end
 
   create_table "user_plans", force: :cascade do |t|
