@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   get "/:user_slug/index" do
-    if params[:user_slug] == Helpers.current_user(session).slug
+    if Helpers.is_logged_in?(session) && params[:user_slug] == Helpers.current_user(session).slug
       @user = Helpers.current_user(session)
       erb :'users/user_index'
     else
