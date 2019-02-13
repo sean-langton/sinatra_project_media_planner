@@ -24,7 +24,7 @@
     <% else %>
       <div class="nav-bar" id="logged-out">
         <h3>
-          <a href="/<%= Helpers.current_user(session) %>/index"> Index </a>
+          <a href="/<%= Helpers.current_user(session).slug %>/index"> Index </a>
           <a href="/plans/new"> Create Media Plan </a>
           <a href="/logout"> Log Out </a>
         </h3>

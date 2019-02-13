@@ -9,10 +9,16 @@ class PlansController < ApplicationController
   end
 
   post "/plans" do
+    puts params
     if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
       @plan = Plan.create(params[:plan]) unless params[:plan][:plan_name].blank? || params[:plan][:plan_budget].blank?
       @user.plans << @plan
+      if params.has_key?("user_ids")
+        params[:user_ids].each do |u|
+          User.find(u).plans << @plan
+        end
+      end
       params[:channel].each do |channel|
         if !channel["channel_name"].blank? && !channel["channel_budget"].blank?
             new_channel = Channel.create(channel)
@@ -46,6 +52,11 @@ class PlansController < ApplicationController
     if params.has_key?("delete_channel")
       params[:delete_channel].keys.each do |id|
         Channel.find(id).delete
+      end
+    end
+    if params.has_key?("user_ids")
+      params[:user_ids].each do |u|
+        User.find(u).plans << @plan
       end
     end
     if !params[:new_channel][:channel_name].blank? && !params[:new_channel][:channel_budget].blank?

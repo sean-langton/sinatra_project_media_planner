@@ -22,5 +22,11 @@
     <label>Channel Budget </label>
     <input type="number" name="new_channel[channel_budget]">
   </h5>
+  <h5>Add Additional Users </h5>
+  <% User.all.each do |u| %>
+  <% if u != Helpers.current_user(session) %>
+  <input id="user_<%= u.id %>" type="checkbox" name="user_ids[]" value="<%= u.id %>" <%='checked' if @plan.users.include?(u) %>> <%=u.username%></input><br>
+  <% end %>
+  <% end %>
     <input type="submit" value="Update Plan">
 </form>

@@ -1,3 +1,4 @@
+<div class="content">
 <form action="/plans" method="POST">
   <h4>
     <label>Media Plan Name </label>
@@ -29,5 +30,13 @@
     <label>Channel Budget </label>
     <input type="number" name="channel[][channel_budget]">
   </h5>
+  <h5>Add Additional Users </h5>
+  <% User.all.each do |u| %>
+  <% if u != Helpers.current_user(session) %>
+  <input id="user_<%= u.id %>" type="checkbox" name="user_ids[]" value="<%= u.id %>"> <%=u.username%></input><br>
+  <% end %>
+  <% end %>
+  <br>
     <input type="submit" value="Submit">
 </form>
+</div>
