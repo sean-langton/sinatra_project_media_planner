@@ -1,0 +1,26 @@
+<form action="/plans/<%= @plan.id %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+  <h4>
+    <label>Media Plan Name </label>
+    <input type="text" name="plan[plan_name]" value="<%= @plan.plan_name %>">
+    <label>Media Plan Budget </label>
+    <input type="number" name="plan[plan_budget]" value="<%= @plan.plan_budget %>">
+  </h4>
+  <% @plan.channels.each do |c| %>
+  <h5>
+    <label>Channel Name </label>
+    <input type="text" name="channel[][channel_name]" value="<%= c.channel_name %>">
+    <label>Channel Budget </label>
+    <input type="number" name="channel[][channel_budget]" value="<%= c.channel_budget %>">
+    <input type="checkbox" name="delete_channel[<%=c.id%>]"> Delete Channel
+  </h5>
+  <% end %>
+  <h4> Create New Channel </h4>
+  <h5>
+    <label>Channel Name </label>
+    <input type="text" name="new_channel[channel_name]">
+    <label>Channel Budget </label>
+    <input type="number" name="new_channel[channel_budget]">
+  </h5>
+    <input type="submit" value="Update Plan">
+</form>
