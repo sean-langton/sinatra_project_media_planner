@@ -1,5 +1,5 @@
 <div class="content">
-<h2> <%= @plan.plan_name %> <a href="<%=@plan.id %>/edit"> Edit </a></h2> 
+<h2> <%= @plan.plan_name %> <a href="<%=@plan.id %>/edit"> Edit </a></h2>
 <h3> $<%= @plan.plan_budget.to_s.reverse.scan(/\d{3}|.+/).join(",").reverse %> </h3>
 <h3> Remaining Budget: $<%= @remaining_budget.to_s.reverse.scan(/\d{3}|.+/).join(",").reverse %> </h3>
 <table>
@@ -14,4 +14,9 @@
   </tr>
   <% end %>
 </table>
+<br>
+<form method="post" action="/plans/<%= @plan.id %>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Plan">
+</form>
 </div>

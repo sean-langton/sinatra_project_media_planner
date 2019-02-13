@@ -45,16 +45,25 @@ class PlansController < ApplicationController
     @plan.update(params[:plan])
     if params.has_key?("delete_channel")
       params[:delete_channel].keys.each do |id|
-        binding.pry
         Channel.find(id).delete
       end
     end
     if !params[:new_channel][:channel_name].blank? && !params[:new_channel][:channel_budget].blank?
-        binding.pry
         new_channel = Channel.create(params[:new_channel])
         @plan.channels << new_channel
     end
     redirect to "/plans/#{@plan.id}"
+  end
+
+  delete "/plans/:plan_id" do
+    @user = Helpers.current_user(session)
+    @plan = Plan.find(params[:plan_id])
+    if @plan.user_ids.include?(@user.id)
+      @plan.delete
+      redirect to "#{@user.slug}/index"
+    else
+    redirect to "/"
+    end
   end
 
 end
