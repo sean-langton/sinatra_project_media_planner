@@ -76,7 +76,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (= 4.2.5)
-  activesupport
   bcrypt
   pry
   rake
